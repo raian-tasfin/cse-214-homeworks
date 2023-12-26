@@ -1,0 +1,31 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{subfiles}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{
+  patterns,
+  backgrounds
+}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{xcolor}
+
+%%%%%%    colours   %%%%%%%%%
+\definecolor{plotBlue}{RGB}{17,111,161}
+\definecolor{plotBackground}{RGB}{213,233,239}
+%%%%%% end: colours %%%%%%%%%
+
+\title{CSE 214; HW-2}
+\author{Raian Tasfin}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\subfile{./subfiles/mistakes-weve-drawn-a-few}
+
+\end{document}
