@@ -3,9 +3,8 @@
 \begin{document}
 \chapter{Mistakes, We've Drawn a Few}
 Source: \url{https://shorturl.at/GJNQW}
-
+\pagebreak
 \section{Truncating the Scale}
-\subsection{corrected}
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]{
@@ -57,6 +56,29 @@ colums/name/.style=string type%
       table [y expr=\coordindex, x=count] {\datatable};
    \end{axis}
    \node[below left,color=gray] () {\small Source: Facebook};
+  \end{tikzpicture}
+\end{figure}
+
+\pagebreak
+\section{Cherry Picking}
+\subsubsection{Source}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{
+    ../graphics/correct-cherry-pick.png
+  }
+\end{figure}
+
+\subsubsection{Replication}
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[
+    background rectangle/.style={
+      fill=plotBackground
+    },
+    show background rectangle
+    ]
+
   \end{tikzpicture}
 \end{figure}
 

@@ -1,0 +1,5 @@
+\contentsline {chapter}{\numberline {1}Mistakes, We've Drawn a Few}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Truncating the Scale}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Cherry Picking}{4}{section.1.2}%
+\contentsline {subsubsection}{Source}{4}{section*.2}%
+\contentsline {subsubsection}{Replication}{4}{section*.3}%
