@@ -70,4 +70,55 @@ colums/name/.style=string type%
 \end{figure}
 
 
+\subsubsection{Replication}
+\pgfplotstableread[%
+col sep=comma,%
+colums/name/.style=string type%
+]{%
+  ./data/dog-data.csv%
+}\datatable
+
+\pgfplotstabletypeset{\datatable}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \pgfplotsset{set layers}
+
+    \begin{axis}[
+      scale only axis,
+      % x axis
+      % xticklabels from table={\datatable}{year},
+      xtick=data,
+      % y axis
+      axis y line*=left,
+      ]  
+
+      \addplot[plotRed, ultra thick]
+      table [
+      % x expr=\coordindex,
+      x=year,
+      y=neck,
+      ] {\datatable};
+    \end{axis}
+
+    \begin{axis}[
+      scale only axis,
+      % x axis
+      axis x line=none,
+      % y axis
+      axis y line*=right,
+      ]
+      \addplot[plotCyan, ultra thick]
+      table [
+      % x expr=\coordindex,
+      x=year,
+      y=weight,
+      ] {\datatable};
+    \end{axis}
+    
+  \end{tikzpicture}
+\end{figure}
+
+
 \end{document}

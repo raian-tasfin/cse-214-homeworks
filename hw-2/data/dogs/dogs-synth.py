@@ -12,16 +12,17 @@ def main():
     lines = fobj.readlines()
     fobj.close()
 
-    table = []
+    fobj = open(outputPath,"w")
+    print("year,weight,neck",file=fobj)
+
     for line in lines[1:]:
         line = line.strip()
         if line == ",,":
             break
-        table.append(line.strip().split(','))
+        line = line.split(',')
+        line[0] = line[0][2:]
+        print(*line,sep=',',file=fobj)
 
-    fobj = open(outputPath, "w")
-    print("year,weight,neck", file=fobj)
-    print(*table, sep=',',end='\n', file=fobj)
     fobj.close()
 
 if __name__=='__main__':
