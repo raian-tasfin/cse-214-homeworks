@@ -4,13 +4,14 @@ LATEX = latexmk -pdf
 # files and directoriesaa
 SUBFILES := $(shell ls ./subfiles/*.tex)
 GRAPHICS := $(shell ls ./graphics/*)
-DATA     := $(shell ls ./data/*/*.csv)
+DATA     := $(shell ls ./data/*.csv)
 
-FILES = $(SUBFILES) $(GRAPHICS) $(DATA)
-
-main.pdf: main.tex $(FILES)
+main.pdf: main.tex $(SUBFILES) $(GRAPHICS) $(DATA)
 	echo $(FILES)
 	$(LATEX) $<
+
+./data/dog-data.csv: ./data/dogs/dogs-synth.py ./data/dogs/Economist_dogs.csv
+	$^ $@
 
 clean:
 	latexmk -c
