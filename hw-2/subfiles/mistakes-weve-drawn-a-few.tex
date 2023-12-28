@@ -25,12 +25,7 @@ colums/name/.style=string type%
 \begin{figure}[h]
   \centering
 
-  \begin{tikzpicture}[
-    background rectangle/.style={
-      fill=plotBackground
-    },
-    show background rectangle
-    ]
+  \begin{tikzpicture}[plotBackground]
     
     \begin{axis}[
       xbar,
@@ -73,7 +68,8 @@ colums/name/.style=string type%
 \subsubsection{Replication}
 \pgfplotstableread[%
 col sep=comma,%
-colums/name/.style=string type%
+colums/name/.style=string type,%
+colums/year/.style=string type,%
 ]{%
   ./data/dog-data.csv%
 }\datatable
@@ -82,33 +78,57 @@ colums/name/.style=string type%
 
 \begin{figure}[h]
   \centering
-  \begin{tikzpicture}
-    \pgfplotsset{set layers}
+  \begin{tikzpicture}[plotBackground]
 
+        
     \begin{axis}[
       scale only axis,
+      % plot size
+      width=0.7\textwidth,
+      height=5cm,
       % x axis
-      % xticklabels from table={\datatable}{year},
-      xtick=data,
+      xtick={0,...,15},
+      xticklabels from table={\datatable}{year},
+      % xtick=data,
+      axis x line=bottom,
+      x axis line style={-,thick},
+      x tick style={-,thick,black},
       % y axis
+      tick align=outside,
+      y tick style={draw=none},
       axis y line*=left,
+      y axis line style={draw opacity=0},
+      yticklabel pos=upper,
+      ymajorgrids=true,
+      ymax=44.5,
+      ymin=38,
       ]  
 
       \addplot[plotRed, ultra thick]
       table [
       % x expr=\coordindex,
-      x=year,
+      x expr=\coordindex,
       y=neck,
       ] {\datatable};
     \end{axis}
 
     \begin{axis}[
       scale only axis,
+      % plot size
+      width=0.7\textwidth,
+      height=5cm,
       % x axis
       axis x line=none,
+      % enlarge y limits=0.1,
       % y axis
       axis y line*=right,
+      y axis line style={draw opacity=0},
+      y tick style={draw=none},
+      yticklabel pos=upper,
+      ymax=21,
+      ymin=17.5,
       ]
+
       \addplot[plotCyan, ultra thick]
       table [
       % x expr=\coordindex,

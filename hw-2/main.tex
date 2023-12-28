@@ -12,13 +12,25 @@
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \usepackage{xcolor}
-
+\pgfplotsset{compat=newest}
 %%%%%%    colours   %%%%%%%%%
 \definecolor{plotBlue}{RGB}{17,111,161}
 \definecolor{plotBackground}{RGB}{213,233,239}
 \definecolor{plotRed}{RGB}{170,18,73}
 \definecolor{plotCyan}{RGB}{0,194,206}
 %%%%%% end: colours %%%%%%%%%
+
+%%%%%%    styles   %%%%%%%%%
+%    setup plot background
+\tikzset{
+  plotBackground/.style={
+    background rectangle/.style={
+      fill=plotBackground
+    },
+    show background rectangle
+  }
+}
+%%%%%% end: styles %%%%%%%%%
 
 \title{CSE 214; HW-2}
 \author{Raian Tasfin}
