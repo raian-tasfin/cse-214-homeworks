@@ -1,0 +1,21 @@
+CONFIG_FILES = default.config
+
+include $(CONFIG_FILES)
+
+CDEFINE =
+# join sin(x) configs
+ifdef SIN_CNT_SAMPLES
+CDEFINE += -DSIN_CNT_SAMPLES=$(SIN_CNT_SAMPLES)
+endif
+
+ifdef SIN_XMIN
+CDEFINE += -DSIN_XMIN=$(SIN_XMIN)
+endif
+
+ifdef SIN_XMAX
+CDEFINE += -DSIN_XMAX=$(SIN_XMAX)
+endif
+
+ifdef NOISE_PERCENTAGE
+CDEFINE += -DNOISE_PERCENTAGE=$(NOISE_PERCENTAGE)
+endif
